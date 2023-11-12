@@ -35,10 +35,8 @@ module.exports = {
           ],
         },
         {
-          test: /\.(jpg|png)$/,
-          use: {
-            loader: 'url-loader',
-          },
+          test: /\.(png|jpeg|jpg|svg|gif)$/,
+          type: 'asset/resource',
         },
         {
           test: /\.(woff|woff2)$/,
@@ -53,7 +51,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: "[name].[contenthash:8].js",
     clean: true,
-    // publicPath: "/assets/"
   },
   devServer: {
     hot: true,
@@ -65,7 +62,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: "public/favicon.ico",
-      manifest: "public/manifest.json",
     }),
     new ReactRefreshWebpackPlugin(),
   ],
